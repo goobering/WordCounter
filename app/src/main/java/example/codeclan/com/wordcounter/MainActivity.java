@@ -30,9 +30,12 @@ public class MainActivity extends AppCompatActivity
 
     public void onCountButtonClicked(View button)
     {
-        String countText = edit_input.getText().toString();
+        //Get string, replace punctuation with empty strings
+        String countText = edit_input.getText().toString().replaceAll("[\\p{Punct}]", "");
+
         ArrayList<String> splitStrings = new ArrayList<String>();
-        for(String string : countText.split(" "))
+        //Snazzy regex for multiple spaces
+        for(String string : countText.split(" +"))
         {
             splitStrings.add(string);
         }
